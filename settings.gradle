@@ -1,1 +1,1 @@
-include ':app', ':runtime_permission'
+include ':app', ':mint-runtime-permission'
