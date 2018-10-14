@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Mint Runtime Permission</string>
+
+    <string name="camera_perm_denied">Camera Permission Denied</string>
+    <string name="camera_perm_permanent_denied">Require Camera permission to fulfill this action</string>
+
+    <string name="sms_perm_denied">SMS Permission Denied</string>
+    <string name="sms_perm_permanent_denied">Require SMS permission to fulfill this action</string>
+
+    <string name="storage_perm_denied">Storage Permission Denied</string>
+    <string name="storage_perm_permanent_denied">Require Storage permission to fulfill this action.</string>
+
+    <string name="audio_perm_denied">Record Audio Permission Denied</string>
+    <string name="audio_perm_permanent_denied">Require Record Audio permission to fulfill this action.</string>
+
+</resources>
