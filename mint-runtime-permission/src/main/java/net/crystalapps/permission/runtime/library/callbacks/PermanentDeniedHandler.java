@@ -6,5 +6,5 @@ import android.support.v4.app.FragmentActivity;
 import net.crystalapps.permission.runtime.library.annotations.Permit;
 
 public interface PermanentDeniedHandler{
-    void onHandle(@NonNull Permit permit, @NonNull FragmentActivity caller, @NonNull SettingOpener settingOpener);
+    void onHandle(@NonNull Permit permit, @NonNull FragmentActivity caller, @NonNull SettingOpener<FragmentActivity> settingOpener);
 }

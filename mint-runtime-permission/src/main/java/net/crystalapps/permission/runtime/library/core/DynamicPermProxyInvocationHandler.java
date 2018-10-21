@@ -3,6 +3,7 @@ package net.crystalapps.permission.runtime.library.core;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import net.crystalapps.permission.runtime.library.annotations.PermanentDenied;
 import net.crystalapps.permission.runtime.library.annotations.PermissionContainer;
@@ -33,7 +34,7 @@ import java.util.Queue;
  * Created by Syed Owais Ali on 10/13/2018.
  */
 
-@SuppressWarnings({"unchecked", "ConstantConditions"})
+//@SuppressWarnings({"unchecked", "ConstantConditions"})
 public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> implements InvocationHandler {
 
     private final T act;
@@ -47,7 +48,7 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
     @Override
     public Object invoke(Object o, Method method, Object[] objects) {
 
-        if (! method.getReturnType().getTypeName().equals("void")) {
+        if (! method.getReturnType().getName().equals("void")) {
             throw new IllegalStateException("Return type of " + method.getName() + " method should be void");
         }
 
@@ -179,9 +180,9 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
                     if (permit.checkPermanentDenied()) {
                         serviceMethod
                                 .getPermanentDeniedHandler()
-                                .onHandle(permit, perm.getCaller(), new SettingOpener() {
+                                .onHandle(permit, perm.getCaller(), new SettingOpener<FragmentActivity>() {
                                     @Override
-                                    public void open() {
+                                    public void open(@NonNull FragmentActivity caller) {
                                         RuntimePermission.openAppSettingIntent(perm.getCaller(), perm.getType(), new PermissionSettingCallback<FragmentActivity>() {
                                             @Override
                                             public void onGranted(@NonNull Perm<FragmentActivity> perm) {
@@ -199,7 +200,7 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
                                     }
 
                                     @Override
-                                    public void doNothing() {
+                                    public void doNothing(@NonNull FragmentActivity caller) {
                                         process(serviceMethod);
                                     }
                                 });
