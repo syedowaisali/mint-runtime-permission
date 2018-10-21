@@ -182,7 +182,7 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
                                 .getPermanentDeniedHandler()
                                 .onHandle(permit, perm.getCaller(), new SettingOpener<FragmentActivity>() {
                                     @Override
-                                    public void open(@NonNull FragmentActivity caller) {
+                                    public void open(@NonNull FragmentActivity caller, @NonNull String permission) {
                                         RuntimePermission.openAppSettingIntent(perm.getCaller(), perm.getType(), new PermissionSettingCallback<FragmentActivity>() {
                                             @Override
                                             public void onGranted(@NonNull Perm<FragmentActivity> perm) {
@@ -200,7 +200,7 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
                                     }
 
                                     @Override
-                                    public void doNothing(@NonNull FragmentActivity caller) {
+                                    public void doNothing(@NonNull FragmentActivity caller, @NonNull String permission) {
                                         process(serviceMethod);
                                     }
                                 });
