@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 ext {
     bintrayRepo = 'maven'
@@ -13,7 +15,7 @@ ext {
     siteUrl = 'https://github.com/syedowaisali/mint-runtime-permission'
     gitUrl = 'https://github.com/syedowaisali/mint-runtime-permission.git'
 
-    libraryVersion = '1.0.9'
+    libraryVersion = '1.1.0'
 
     developerId = 'syedowaisali'
     developerName = 'Syed Owais Ali'
@@ -41,7 +43,11 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+repositories {
+    mavenCentral()
+}
