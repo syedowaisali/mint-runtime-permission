@@ -1,6 +1,6 @@
 package net.crystalapps.permission.runtime.library.annotations;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

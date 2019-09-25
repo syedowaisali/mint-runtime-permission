@@ -2,9 +2,10 @@ package net.crystalapps.permission.runtime.library.core;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import net.crystalapps.permission.runtime.library.callbacks.PermissionCallback;
 import net.crystalapps.permission.runtime.library.models.Perm;
@@ -24,7 +25,7 @@ public class PermsFragment<T> extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == perm.getRequestCode()) {
+        if (requestCode == perm.getRequestCode() && grantResults.length > 0) {
 
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 callback.onGranted(perm);

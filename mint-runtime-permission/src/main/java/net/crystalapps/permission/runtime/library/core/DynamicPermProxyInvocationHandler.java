@@ -1,9 +1,8 @@
 package net.crystalapps.permission.runtime.library.core;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 
 import net.crystalapps.permission.runtime.library.annotations.PermanentDenied;
 import net.crystalapps.permission.runtime.library.annotations.PermissionContainer;
@@ -34,7 +33,7 @@ import java.util.Queue;
  * Created by Syed Owais Ali on 10/13/2018.
  */
 
-//@SuppressWarnings({"unchecked", "ConstantConditions"})
+@SuppressWarnings({"unchecked", "ConstantConditions"})
 public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> implements InvocationHandler {
 
     private final T act;
@@ -146,7 +145,16 @@ public class DynamicPermProxyInvocationHandler<T extends FragmentActivity, S> im
             Constructor constructor = clazz.getDeclaredConstructor();
             constructor.setAccessible(true);
             return (O) constructor.newInstance();
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return null;

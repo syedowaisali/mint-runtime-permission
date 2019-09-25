@@ -1,6 +1,6 @@
 package net.crystalapps.permission.runtime.library.callbacks;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import net.crystalapps.permission.runtime.library.models.Perm;
 

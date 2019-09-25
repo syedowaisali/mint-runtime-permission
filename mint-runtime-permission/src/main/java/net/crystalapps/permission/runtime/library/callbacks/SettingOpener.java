@@ -1,9 +1,8 @@
 package net.crystalapps.permission.runtime.library.callbacks;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 
-import net.crystalapps.permission.runtime.library.models.Perm;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 
 public interface SettingOpener<T extends FragmentActivity>{
     void open(@NonNull T caller, @NonNull String permission);

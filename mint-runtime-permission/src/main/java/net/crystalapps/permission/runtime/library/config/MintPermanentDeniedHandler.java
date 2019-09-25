@@ -1,8 +1,9 @@
 package net.crystalapps.permission.runtime.library.config;
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
+import android.app.AlertDialog;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 
 import net.crystalapps.permission.runtime.library.annotations.Permit;
 import net.crystalapps.permission.runtime.library.callbacks.PermanentDeniedHandler;

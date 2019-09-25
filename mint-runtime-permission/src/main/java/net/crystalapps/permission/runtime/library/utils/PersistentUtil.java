@@ -2,7 +2,8 @@ package net.crystalapps.permission.runtime.library.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by Syed Owais Ali on 10/13/2018.

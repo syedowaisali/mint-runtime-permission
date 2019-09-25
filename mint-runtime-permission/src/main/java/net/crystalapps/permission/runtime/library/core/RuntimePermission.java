@@ -6,12 +6,13 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import net.crystalapps.permission.runtime.library.callbacks.PermissionCallback;
 import net.crystalapps.permission.runtime.library.callbacks.PermissionSettingCallback;
@@ -24,7 +25,7 @@ import net.crystalapps.permission.runtime.library.utils.ProxyUtil;
  * Created by Syed Owais Ali on 5/7/2018.
  */
 
-@SuppressWarnings({"unchecked", "WeakerAccess", "unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class RuntimePermission {
 
     public static boolean isPermissionRequired() {
@@ -68,8 +69,8 @@ public class RuntimePermission {
             } else {
                 FragmentManager fragmentManager = activity.getSupportFragmentManager();
                 PermsFragment fragment = PermsFragment.getInstance(perm, callback);
-                fragmentManager.beginTransaction().add(fragment, "PERMS_FRAGMENT").commitAllowingStateLoss();
-                fragmentManager.executePendingTransactions();
+                fragmentManager.beginTransaction().add(fragment, "PERMS_FRAGMENT").commitNow();
+                //fragmentManager.executePendingTransactions();
                 fragment.requestPermissions(new String[]{perm.getType()}, perm.getRequestCode());
             }
         } else {
@@ -107,8 +108,8 @@ public class RuntimePermission {
 
             FragmentManager fragmentManager = activity.getSupportFragmentManager();
             AppSettingFragment fragment = AppSettingFragment.getInstance(perm, callback);
-            fragmentManager.beginTransaction().add(fragment, "APP_SETTING_FRAGMENT").commit();
-            fragmentManager.executePendingTransactions();
+            fragmentManager.beginTransaction().add(fragment, "APP_SETTING_FRAGMENT").commitNow();
+            //fragmentManager.executePendingTransactions();
 
             Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", activity.getPackageName(), null));
             fragment.startActivityForResult(intent, perm.getRequestCode());

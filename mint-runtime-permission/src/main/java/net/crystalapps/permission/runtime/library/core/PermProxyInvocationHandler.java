@@ -1,6 +1,6 @@
 package net.crystalapps.permission.runtime.library.core;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

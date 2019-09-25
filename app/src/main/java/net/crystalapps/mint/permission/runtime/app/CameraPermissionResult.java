@@ -1,10 +1,11 @@
 package net.crystalapps.mint.permission.runtime.app;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import net.crystalapps.permission.runtime.library.models.Perm;
 import net.crystalapps.permission.runtime.library.callbacks.PermissionCallback;
